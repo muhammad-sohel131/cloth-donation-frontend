@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import Home from "../Pages/Home/Home";
+import Campaigns from "../Pages/Campaigns/Campaigns";
+import CampaignDetails from "../Components/CampaignDetails/CampaignDetails";
 
 const route = createBrowserRouter([
     {
@@ -13,7 +15,7 @@ const route = createBrowserRouter([
             },
             {
                 path:"/campaigns",
-                element: <h3>Campaigns</h3>
+                element: <Campaigns />
             },
             {
                 path: "/help",
@@ -22,6 +24,10 @@ const route = createBrowserRouter([
             {
                 path: "dashbord",
                 element: <h3>Dashboard</h3>
+            },
+            {
+                path: 'campaign-details/:id',
+                element: <CampaignDetails />
             }
         ]
     }
