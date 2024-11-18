@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "title": "Warm Clothing Drive for Dhaka",
+      "image": "https://example.com/dhaka.jpg",
+      "description": "Donate warm clothes to help the less fortunate in Dhaka city during this cold season.",
+      "status": "Active",
+      "contactInfo": "Contact: 123-456-7890 | email@example.com",
+      "division": "Dhaka"
+    },
+    {
+      "id": 2,
+      "title": "Winter Aid for Chittagong",
+      "image": "https://example.com/chittagong.jpg",
+      "description": "Help vulnerable communities in Chittagong with your generous clothing donations.",
+      "status": "Active",
+      "contactInfo": "Contact: 987-654-3210 | email@example.com",
+      "division": "Chittagong"
+    },
+    {
+      "id": 3,
+      "title": "Clothes for the Needy in Rajshahi",
+      "image": "https://example.com/rajshahi.jpg",
+      "description": "Join our effort to keep the underprivileged in Rajshahi warm by donating winter clothes.",
+      "status": "Active",
+      "contactInfo": "Contact: 555-123-4567 | email@example.com",
+      "division": "Rajshahi"
+    },
+    {
+      "id": 4,
+      "title": "Warmth for Barisal's Homeless",
+      "image": "https://example.com/barisal.jpg",
+      "description": "Help provide essential winter clothing for homeless individuals in Barisal.",
+      "status": "Active",
+      "contactInfo": "Contact: 888-765-4321 | email@example.com",
+      "division": "Barisal"
+    },
+    {
+      "id": 5,
+      "title": "Clothing Drive for Sylhet Families",
+      "image": "https://example.com/sylhet.jpg",
+      "description": "Donate warm clothing for struggling families in Sylhet this winter season.",
+      "status": "Active",
+      "contactInfo": "Contact: 112-233-4455 | email@example.com",
+      "division": "Sylhet"
+    },
+    {
+      "id": 6,
+      "title": "Khulna Winter Clothing Campaign",
+      "image": "https://example.com/khulna.jpg",
+      "description": "Support the less fortunate in Khulna with donations of jackets, sweaters, and blankets.",
+      "status": "Active",
+      "contactInfo": "Contact: 333-666-7777 | email@example.com",
+      "division": "Khulna"
+    },
+    {
+      "id": 7,
+      "title": "Warm Clothes for Rangpur",
+      "image": "https://example.com/rangpur.jpg",
+      "description": "Donate warm clothes to help people stay warm in Rangpur during the cold months.",
+      "status": "Active",
+      "contactInfo": "Contact: 444-999-0000 | email@example.com",
+      "division": "Rangpur"
+    },
+    {
+      "id": 8,
+      "title": "Aid for Cold-Weather Survivors in Mymensingh",
+      "image": "https://example.com/mymensingh.jpg",
+      "description": "Mymensingh residents in need of winter clothes can benefit from your donations this winter.",
+      "status": "Active",
+      "contactInfo": "Contact: 666-777-8888 | email@example.com",
+      "division": "Mymensingh"
+    }
+  ]
+  
