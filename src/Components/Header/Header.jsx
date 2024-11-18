@@ -44,7 +44,7 @@ export default function Header() {
                     {
                         !open ? <CiMenuFries onClick={handleMenu} className="text-2xl" /> : <>
                             <IoClose onClick={handleMenu} className="text-2xl" />
-                            <ul className="flex flex-col gap-6 text-lg absolute right-0 border border-gray-50 w-[95vw] top-[75px] p-10 shadow-xl">
+                            <ul className="flex flex-col gap-6 text-lg absolute right-0 border border-gray-50 w-[95vw] top-[75px] p-10 shadow-xl z-50 bg-white">
                                 {menu}
                                 <div className="">
                                     <button className="bg-[#f86011] text-white py-2 px-10 rounded-lg text-lg">Login</button>
