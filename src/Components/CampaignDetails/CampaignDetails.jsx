@@ -85,7 +85,7 @@ const CampaignDetails = () => {
                     name="quantity"
                     value={formData.quantity}
                     onChange={handleChange}
-                    placeholder="e.g., 2 jackets, 3 blankets"
+                    placeholder="2 jackets, 3 blankets"
                     className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -99,7 +99,7 @@ const CampaignDetails = () => {
                     name="itemType"
                     value={formData.itemType}
                     onChange={handleChange}
-                    placeholder="e.g., blanket, jacket, sweater"
+                    placeholder="blanket, jacket, sweater"
                     className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -113,7 +113,7 @@ const CampaignDetails = () => {
                     name="pickupLocation"
                     value={formData.pickupLocation}
                     onChange={handleChange}
-                    placeholder="e.g., House 12, Road 5, Dhanmondi, Dhaka"
+                    placeholder="House 12, Road 5, Dhanmondi, Dhaka"
                     className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -126,7 +126,7 @@ const CampaignDetails = () => {
                     name="additionalNotes"
                     value={formData.additionalNotes}
                     onChange={handleChange}
-                    placeholder="e.g., Specific time for pickup"
+                    placeholder="Specific time for pickup"
                     className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     rows="4"
                   ></textarea>
