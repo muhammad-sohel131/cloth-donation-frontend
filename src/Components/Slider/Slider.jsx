@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import './Slider.css'
+import { Link } from "react-router-dom";
 
 const Slider = () => {
     const [campaigns, setCampaigns] = useState([])
@@ -46,7 +47,7 @@ const Slider = () => {
               {campaign.description}
             </p>
             <button className="bg-[#f86011] my-10  px-12 py-4 text-xl font-bold rounded-md hover:bg-[#DA5107] text-white transition">
-                Donate Now
+                <Link to={`campaign-details/${campaign.id}`}>Donate Now</Link>
               </button>
             </div>
           </div>

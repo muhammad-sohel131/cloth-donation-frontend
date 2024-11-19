@@ -5,12 +5,12 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Dashboard = () => {
   // Mock data to simulate user profile info
   const { user } = useContext(AuthContext);
-
+  console.log(user)
   const navigate = useNavigate();
 
   // Handle Update Profile Button Click
   const handleUpdateProfile = () => {
-    // navigate("/update-profile");
+    navigate("/update-profile");
   };
 
   return (

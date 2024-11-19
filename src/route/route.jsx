@@ -8,6 +8,7 @@ import Register from "../Pages/Register/Register";
 import Dashboard from "../Pages/Dashbord/Dashbord";
 import HowToHelp from "../Pages/HowToHelp/HowToHelp";
 import PrivateRoute from "./PrivateRoute";
+import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 
 const route = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const route = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register />
+            },
+            {
+                path: "/update-profile",
+                element: <PrivateRoute><UpdateProfile /></PrivateRoute>
             }
         ]
     }
