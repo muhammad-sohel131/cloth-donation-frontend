@@ -6,6 +6,7 @@ import CampaignDetails from "../Components/CampaignDetails/CampaignDetails";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Dashboard from "../Pages/Dashbord/Dashbord";
+import HowToHelp from "../Pages/HowToHelp/HowToHelp";
 
 const route = createBrowserRouter([
     {
@@ -21,8 +22,8 @@ const route = createBrowserRouter([
                 element: <Campaigns />
             },
             {
-                path: "/help",
-                element: <h3>How it works</h3>
+                path: "/howtohelp",
+                element: <HowToHelp />
             },
             {
                 path: "dashbord",

@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -16,39 +19,36 @@ const Footer = () => {
           {/* Social Media Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
-            <div className="flex space-x-4">
-              <a
-                href="https://facebook.com"
+            <div className="flex gap-x-10">
+              <Link
+                to="https://facebook.com"
+                target="_blank"
+                className="hover:text-gray-200 text-4xl"
+              >
+                <FaFacebookF />
+              </Link>
+              <Link
+                to="https://twitter.com"
+                target="_blank"
+                className="hover:text-gray-200 text-4xl"
+              >
+                <FaXTwitter />
+              </Link>
+              <Link
+                to="https://instagram.com"
+                target="_blank"
+                className="hover:text-gray-200 text-4xl"
+              >
+                <FaInstagram />
+              </Link>
+              <Link
+                to="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-blue-500"
+                className="hover:text-gray-200 text-4xl"
               >
-                Facebook
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-300"
-              >
-                Twitter
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-pink-400"
-              >
-                Instagram
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-600"
-              >
-                LinkedIn
-              </a>
+                <FaLinkedin />
+              </Link>
             </div>
           </div>
           <div>

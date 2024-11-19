@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { CiMenuFries } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
@@ -18,7 +19,7 @@ export default function Header() {
             <NavLink to='/campaigns' className='pb-2'>Donation Campaigns</NavLink>
         </li>
         <li>
-            <NavLink to='/help' className='pb-2'>How To Help</NavLink>
+            <NavLink to='/howtohelp' className='pb-2'>How To Help</NavLink>
         </li>
         <li>
             <NavLink to='dashbord' className='pb-2'>Dashbord</NavLink>
@@ -36,7 +37,11 @@ export default function Header() {
                     {menu}
                 </ul>
                 <div className="hidden lg:block">
-                    <button className="bg-[#f86011] text-white py-2 px-10 rounded-lg text-lg">Login</button>
+                    <button className="bg-[#f86011] text-white py-2 px-10 rounded-lg text-lg">
+                        <Link to='/login'>
+                        Login
+                        </Link>
+                    </button>
                 </div>
 
                 {/* for mobile */}
