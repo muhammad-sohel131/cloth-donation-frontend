@@ -17,7 +17,7 @@ const Dashboard = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          Welcome, {user?.name}!
+          Welcome, {user?.displayName}!
         </h2>
         <div className="text-center">
           <img
@@ -25,8 +25,9 @@ const Dashboard = () => {
             alt="Profile"
             className="w-24 h-24 rounded-full mx-auto mb-4"
           />
-          <p className="text-lg font-medium text-gray-700">{user?.name}</p>
+          <p className="text-lg font-medium text-gray-700">{user?.displayName}</p>
           <p className="text-sm text-gray-500">{user?.email}</p>
+          <p className="text-sm text-gray-500">{user?.phoneNumber}</p>
         </div>
         <div className="mt-6 text-center">
           <button

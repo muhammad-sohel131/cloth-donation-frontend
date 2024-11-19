@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -9,6 +9,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const location = useLocation();
   const {logIn, setUser} = useContext(AuthContext);
 
   // Handle form input change
@@ -26,7 +27,7 @@ const Login = () => {
     .then(result => {
       setUser(result.user);
       toast.success("Login Successful!");
-      navigate("/");
+      location.state ? navigate(location.state) : navigate("/");
     })
     .catch(err => {
       setError(err.message)

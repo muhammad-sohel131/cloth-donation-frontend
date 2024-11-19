@@ -6,7 +6,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const Register = () => {
-  const { createNewUser, setUser } = useContext(AuthContext)
+  const { createNewUser, setUser, updateUserProfile } = useContext(AuthContext)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -55,8 +55,9 @@ const Register = () => {
         .then(result => {
           toast.success("Registration Successful!");
           setUser(result.user)
-          console.log(result.user)
-          navigate("/");
+          updateUserProfile({displayName:name, photoURL, phoneNumber:phone})
+          .then(() => {navigate("/");})
+          .catch(err => console.log(err));
         })
         .catch(err => console.log(err))
     } else {
@@ -92,7 +93,7 @@ const Register = () => {
             />
           </div>
           <div>
-            <label className="block text-gray-700 font-medium mb-2">Email</label>
+            <label className="block text-gray-700 font-medium mb-2">Phone</label>
             <input
               type="text"
               name="phone"
