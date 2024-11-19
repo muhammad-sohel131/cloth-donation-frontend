@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const {logIn, setUser} = useContext(AuthContext);
 
   // Handle form input change
   const handleChange = (e) => {
@@ -20,7 +22,16 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = formData;
-
+    logIn(email,password)
+    .then(result => {
+      setUser(result.user);
+      toast.success("Login Successful!");
+      navigate("/");
+    })
+    .catch(err => {
+      setError(err.message)
+      console.log(err)
+    })
   };
 
   // Handle Google Login

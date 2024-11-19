@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const Register = () => {
+  const { createNewUser, setUser } = useContext(AuthContext)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     photoURL: "",
     password: "",
+    phone: ""
   });
   const [passwordError, setPasswordError] = useState("");
   const [error, setError] = useState("");
@@ -38,7 +41,7 @@ const Register = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { name, email, password } = formData;
+    const { name, phone, photoURL, email, password } = formData;
 
     // Validate password
     const passwordValidationError = validatePassword(password);
@@ -47,10 +50,15 @@ const Register = () => {
       return;
     }
 
-    if (name && email && password) {
-      toast.success("Registration Successful!");
-      localStorage.setItem("isLoggedIn", true); 
-      navigate("/"); 
+    if (name && phone && email && password) {
+      createNewUser(email, password)
+        .then(result => {
+          toast.success("Registration Successful!");
+          setUser(result.user)
+          console.log(result.user)
+          navigate("/");
+        })
+        .catch(err => console.log(err))
     } else {
       setError("All fields are required!");
       toast.error("Registration Failed! Please fill all fields.");
@@ -61,7 +69,7 @@ const Register = () => {
   const handleGoogleLogin = () => {
     toast.success("Google Login Successful!");
     localStorage.setItem("isLoggedIn", true);
-    navigate("/"); 
+    navigate("/");
   };
 
   return (
@@ -79,6 +87,18 @@ const Register = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter your name"
+              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 font-medium mb-2">Email</label>
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Enter your Phone"
               className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />

@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Dashboard from "../Pages/Dashbord/Dashbord";
 import HowToHelp from "../Pages/HowToHelp/HowToHelp";
+import PrivateRoute from "./PrivateRoute";
 
 const route = createBrowserRouter([
     {
@@ -27,11 +28,11 @@ const route = createBrowserRouter([
             },
             {
                 path: "dashbord",
-                element: <Dashboard />
+                element: <PrivateRoute><Dashboard /></PrivateRoute>
             },
             {
                 path: 'campaign-details/:id',
-                element: <CampaignDetails />
+                element: <PrivateRoute><CampaignDetails /></PrivateRoute>
             },
             {
                 path: 'login',
