@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -59,7 +59,7 @@ const Login = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f86011]"
               required
             />
           </div>
@@ -73,7 +73,7 @@ const Login = () => {
               value={formData.password}
               onChange={handleChange}
               placeholder="Enter your password"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f86011]"
               required
             />
           </div>
@@ -85,12 +85,13 @@ const Login = () => {
             Login
           </button>
           <div className="text-right mt-2">
-            <a
-              href="/forgot-password"
+            <Link
+              to="/forgot-password"
+              state={{ email: formData.email }}
               className="text-[#f86011] hover:underline text-sm"
             >
               Forgot Password?
-            </a>
+            </Link>
           </div>
         </form>
 
@@ -107,9 +108,9 @@ const Login = () => {
         <div className="mt-6 text-center">
           <p className="text-gray-700">
             Don't have an account?{" "}
-            <a href="/register" className="text-[#f86011] hover:underline">
+            <Link to="/register" className="text-[#f86011] hover:underline">
               Register
-            </a>
+            </Link>
           </p>
         </div>
       </div>

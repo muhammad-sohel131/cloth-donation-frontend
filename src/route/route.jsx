@@ -9,11 +9,14 @@ import Dashboard from "../Pages/Dashbord/Dashbord";
 import HowToHelp from "../Pages/HowToHelp/HowToHelp";
 import PrivateRoute from "./PrivateRoute";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
+import NotFound from "../Pages/NotFound/NotFound";
+import ForgotPassword from "../Pages/ForgetPassword/ForgetPassword";
 
 const route = createBrowserRouter([
     {
         path: "/",
         element: <Layout />,
+        errorElement: <NotFound />,
         children: [
             {
                 path:"",
@@ -46,6 +49,10 @@ const route = createBrowserRouter([
             {
                 path: "/update-profile",
                 element: <PrivateRoute><UpdateProfile /></PrivateRoute>
+            },
+            {
+                path: 'forgot-password',
+                element: <ForgotPassword />
             }
         ]
     }
