@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../Provider/AuthProvider";
-
+import { LuEye, LuEyeOff } from "react-icons/lu";
 
 const Register = () => {
   const { createNewUser, setUser, updateUserProfile } = useContext(AuthContext)
@@ -18,6 +18,10 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const [show, setShow] = useState(false);
+  const handlePassType = () => {
+    setShow(!show);
+  }
   // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,22 +59,24 @@ const Register = () => {
         .then(result => {
           toast.success("Registration Successful!");
           setUser(result.user)
-          updateUserProfile({displayName:name, photoURL, phoneNumber:phone})
-          .then(() => {navigate("/");})
-          .catch(err => console.log(err));
+          updateUserProfile({ displayName: name, photoURL, phoneNumber: phone })
+            .then(() => { navigate("/"); })
+            .catch(err => console.log(err));
         })
         .catch(err => console.log(err))
     } else {
       setError("All fields are required!");
       toast.error("Registration Failed! Please fill all fields.");
     }
-  };
+  }
+
+    ;
 
   // Handle Google Login
   const handleGoogleLogin = () => {
-    toast.success("Google Login Successful!");
-    localStorage.setItem("isLoggedIn", true);
-    navigate("/");
+    // toast.success("Google Login Successful!");
+    // localStorage.setItem("isLoggedIn", true);
+    // navigate("/");
   };
 
   return (
@@ -88,7 +94,7 @@ const Register = () => {
               value={formData.name}
               onChange={handleChange}
               placeholder="Enter your name"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f86011]"
               required
             />
           </div>
@@ -100,7 +106,7 @@ const Register = () => {
               value={formData.phone}
               onChange={handleChange}
               placeholder="Enter your Phone"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f86011]"
               required
             />
           </div>
@@ -112,7 +118,7 @@ const Register = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f86011]"
               required
             />
           </div>
@@ -126,22 +132,26 @@ const Register = () => {
               value={formData.photoURL}
               onChange={handleChange}
               placeholder="Enter your photo URL"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f86011]"
             />
           </div>
-          <div>
+          <div className="relative">
             <label className="block text-gray-700 font-medium mb-2">
               Password
             </label>
             <input
-              type="password"
+              type={show ? "text" : "password"}
               name="password"
               value={formData.password}
               onChange={handleChange}
               placeholder="Enter your password"
-              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f86011]"
               required
             />
+            {
+              show ? <LuEyeOff onClick={handlePassType} className="absolute bottom-4 right-4 text-2xl cursor-pointer"></LuEyeOff> :
+                <LuEye onClick={handlePassType} className="absolute bottom-4 right-4 text-2xl cursor-pointer"></LuEye>
+            }
             {passwordError && (
               <p className="text-red-500 text-sm mt-1">{passwordError}</p>
             )}
@@ -168,9 +178,9 @@ const Register = () => {
         <div className="mt-6 text-center">
           <p className="text-gray-700">
             Already have an account?{" "}
-            <a href="/login" className="text-[#f86011] hover:underline">
+            <Link to="/login" className="text-[#f86011] hover:underline">
               Login
-            </a>
+            </Link>
           </p>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -7,10 +8,14 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const [show, setShow] = useState(false);
+  const handlePassType = () => {
+    setShow(!show);
+  }
   const navigate = useNavigate();
 
   const location = useLocation();
-  const {logIn, setUser} = useContext(AuthContext);
+  const {logIn, setUser, signInWithGoogle} = useContext(AuthContext);
 
   // Handle form input change
   const handleChange = (e) => {
@@ -37,11 +42,14 @@ const Login = () => {
 
   // Handle Google Login
   const handleGoogleLogin = () => {
-    toast.success("Google Login Successful!");
-    localStorage.setItem("isLoggedIn", true);
-    navigate("/");
+    signInWithGoogle()
+    .then(() => {
+      toast.success("Google Login Successful!");
+      navigate("/");
+    })
+    .cath((err) => console.log(err));
   };
-
+  
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-md bg-white shadow-md rounded-lg p-8">
@@ -61,14 +69,15 @@ const Login = () => {
               placeholder="Enter your email"
               className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f86011]"
               required
+              
             />
           </div>
-          <div>
+          <div className="relative">
             <label className="block text-gray-700 font-medium mb-2">
               Password
             </label>
             <input
-              type="password"
+              type={show ? "text" : "password"}
               name="password"
               value={formData.password}
               onChange={handleChange}
@@ -76,6 +85,10 @@ const Login = () => {
               className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#f86011]"
               required
             />
+            {
+              show ? <LuEyeOff onClick={handlePassType} className="absolute bottom-4 right-4 text-2xl cursor-pointer"></LuEyeOff> :
+              <LuEye onClick={handlePassType} className="absolute bottom-4 right-4 text-2xl cursor-pointer"></LuEye>
+            }
           </div>
           {error && <p className="text-red-500 text-sm">{error}</p>}
           <button
