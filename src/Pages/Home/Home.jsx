@@ -5,9 +5,10 @@ import Testimonials from "../../Components/Testimonials/Testimonials";
 import Volunteer from "../../Components/Volunteer/Volunteer";
 
 export default function Home() {
+  
   return (
     <>
-        <Slider />
+        <Slider  />
         <About />
         <HowItWorks />
         <Testimonials />

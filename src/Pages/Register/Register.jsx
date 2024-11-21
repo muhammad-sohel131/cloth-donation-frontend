@@ -6,7 +6,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 
 const Register = () => {
-  const { createNewUser, setUser, updateUserProfile } = useContext(AuthContext)
+  const { createNewUser, setUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -70,13 +70,16 @@ const Register = () => {
     }
   }
 
-    ;
-
   // Handle Google Login
   const handleGoogleLogin = () => {
-    // toast.success("Google Login Successful!");
-    // localStorage.setItem("isLoggedIn", true);
-    // navigate("/");
+    signInWithGoogle()
+    .then(() => {
+      toast.success("Google Login Successful!");
+      navigate("/");
+    })
+    .cath((err) => {
+      console.log(err);
+    })
   };
 
   return (

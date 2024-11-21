@@ -1,6 +1,12 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const About = () => {
+  
+  useEffect(() => {
+    AOS.init();
+  },[])
+
   return (
     <section className="py-12 mx-container">
       <div className="container mx-auto px-6 lg:px-16 text-center">
@@ -13,7 +19,7 @@ const About = () => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1 */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
+          <div data-aos="fade-left" data-aos-anchor-placement="top-center" className="bg-white shadow-lg rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">
               Donate Warm Clothing
             </h3>
@@ -22,7 +28,7 @@ const About = () => {
             </p>
           </div>
           {/* Card 2 */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
+          <div data-aos="fade-zoom-in" className="bg-white shadow-lg rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">
               Volunteer Locally
             </h3>
@@ -31,7 +37,7 @@ const About = () => {
             </p>
           </div>
           {/* Card 3 */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
+          <div data-aos="fade-right"  className="bg-white shadow-lg rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-800 mb-4">
               Spread the Word
             </h3>

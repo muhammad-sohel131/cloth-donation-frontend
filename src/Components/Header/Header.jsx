@@ -51,8 +51,7 @@ export default function Header() {
                             </button> :
                             <div className="flex gap-x-5 items-center">
                                 <div className="flex flex-col justify-between items-center gap-1 border border-[#f86011] rounded-full p-2 px-4">
-                                    <FaUser />
-                                    <p>{user.email}</p>
+                                    <p>{user.photoURL ? <img width="50px" src={user.photoURL} /> :  <FaUser />}</p>
                                 </div>
                                 <button onClick={logOut} className="bg-[#f86011] text-white py-2 px-10 rounded-lg text-lg">
                                     <Link to='/'>
